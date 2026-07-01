@@ -36,6 +36,14 @@ app.get("/goodbye", function(req, res) {
     res.send("Goodbye world!");
 });
 
+// Create a route for root - /
+app.get("/", function(req, res) {
+// Set up an array of data
+var test_data = ['one', 'two', 'three', 'four'];
+// Send the array through to the template as a variable called data
+res.render("index", {'title':'My index page', 'heading':'My heading', 'data':test_data})
+});
+
 // Create a dynamic route for /hello/<name>, where name is any value provided by user
 // At the end of the URL
 // Responds to a 'GET' request
@@ -45,6 +53,20 @@ app.get("/hello/:name", function(req, res) {
     console.log(req.params);
     //  Retrieve the 'name' parameter and use it in a dynamically generated page
     res.send("Hello " + req.params.name);
+});
+
+// Display formatted list of students
+app.get("/all-students-formatted", function(req, res) {
+
+    var sql = 'select * from Students';
+
+    db.query(sql).then(results => {
+
+        // Send the results to the Pug template
+        res.render('all-students', { data: results });
+
+    });
+
 });
 
 // Start server on port 3000

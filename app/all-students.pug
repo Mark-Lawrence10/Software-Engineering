@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+    h1 Student List
+
+    table(border="1")
+
+        tr
+            th ID
+            th First Name
+            th Last Name
+            th Course
+
+        each student in data
+            tr
+                td= student.Student_ID
+                td= student.First_Name
+                td= student.Last_Name
+                td= student.Course
+                
