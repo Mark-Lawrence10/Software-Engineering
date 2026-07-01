@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1 #{HELLO}
-  p Welcome to my Software Engineering practical.
+    h1 #{heading}
+    p Welcome to my Software Engineering practical.
+
+    p Now let's loop
+
+    each item in data
+        p #{item}
