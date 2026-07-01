@@ -11,17 +11,10 @@ app.set('views', './app/views');
 app.use(express.static("static"));
 
 // Get the functions in the db.js file to use
-const db = require('./services/db');
-
-app.get("/", function(req, res) {
-    res.render("index", {
-        title: "Software Engineering",
-        heading: "Welcome"
-    });
-});
+// const db = require('./services/db');
 
 // Create a route for testing the db
-app.get("/db_test", function(req, res) {
+app.get("/all-student-formatted", function(req, res) {
     // Assumes a table called test_table exists in your database
     sql = 'select * from test_table';
     db.query(sql).then(results => {
