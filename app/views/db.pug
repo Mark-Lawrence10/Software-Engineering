@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1 DB Test Page
+
+    table(border="1")
+        tr
+            th ID
+            th Name
+
+        each item in data
+            tr
+                td #{item.id}
+                td #{item.name}
